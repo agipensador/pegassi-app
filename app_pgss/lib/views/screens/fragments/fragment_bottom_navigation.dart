@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class FragmentBottomNavigation extends GetView {
-  FragmentBottomNavigation({Key? key}) : super(key: key);
+  FragmentBottomNavigation({super.key});
 
   final ManagerController controllerManager = Get.put(ManagerController());
   final HomeController homeController = Get.put(HomeController());
@@ -25,9 +25,9 @@ class FragmentBottomNavigation extends GetView {
         child: SafeArea(
           child: Container(
             color:
-            // brightness == Brightness.dark
-            //     ? AppColors.primaryColorDark :
-            AppColors.primaryColor,
+                // brightness == Brightness.dark
+                //     ? AppColors.primaryColorDark :
+                AppColors.primaryColor,
             child: Scaffold(
               resizeToAvoidBottomInset: false,
               appBar: const PreferredSize(
@@ -36,42 +36,34 @@ class FragmentBottomNavigation extends GetView {
               ),
               bottomNavigationBar: controllerManager.isPayAccount.value
                   ? bottomNavigation([
-                buildItem(0, Icons.home_filled, 'Início'),
-                buildItem(1, Icons.workspace_premium, 'Premium'),
-                buildItem(2, Icons.people, 'Artistas'),
-                buildItem(3, Icons.store, 'Loja'),
-              ])
+                      buildItem(0, Icons.workspace_premium, 'Premium'),
+                      buildItem(1, Icons.home_filled, 'Início'),
+                      buildItem(2, Icons.people, 'Artistas'),
+                      buildItem(3, Icons.store, 'Loja'),
+                    ])
                   : bottomNavigation([
-                buildItem(0, Icons.home_filled, 'Início'),
-                buildItem(1, Icons.people, 'Artistas'),
-                buildItem(2, Icons.store, 'Loja'),
-              ]),
+                      buildItem(0, Icons.people, 'Artistas'),
+                      buildItem(1, Icons.home_filled, 'Início'),
+                      buildItem(2, Icons.store, 'Loja'),
+                    ]),
               backgroundColor: Colors.transparent,
               body: Scaffold(
                 resizeToAvoidBottomInset: false,
                 backgroundColor: AppColors.primaryColor,
                 body: controllerManager.isPayAccount.value
                     ? PageView(
-                  controller: controllerManager.pageController,
-                  physics: const AlwaysScrollableScrollPhysics(),
-                  onPageChanged: controllerManager.pageChanged,
-                  children: [
-                    ScreenHome(),
-                    Tela1(),
-                   Tela2()
-                  ],
-                )
+                        controller: controllerManager.pageController,
+                        physics: const AlwaysScrollableScrollPhysics(),
+                        onPageChanged: controllerManager.pageChanged,
+                        children: [const Tela1(), ScreenHome(), const Tela2()],
+                      )
                     : PageView(
-                  controller: controllerManager.pageController,
-                  physics: const AlwaysScrollableScrollPhysics(),
-                  onPageChanged: controllerManager.pageChanged,
-                  children: [
-                    ScreenHome(),
-                    Tela1(),
-                    Tela2()
-                  ],
-                ),
-                bottomNavigationBar:  const SizedBox.shrink(),
+                        controller: controllerManager.pageController,
+                        physics: const AlwaysScrollableScrollPhysics(),
+                        onPageChanged: controllerManager.pageChanged,
+                        children: [ScreenHome(), const Tela1(), const Tela2()],
+                      ),
+                bottomNavigationBar: const SizedBox.shrink(),
               ),
             ),
           ),
@@ -115,63 +107,63 @@ class FragmentBottomNavigation extends GetView {
         decoration: BoxDecoration(
           color: controllerManager.currentPageIndex.value == index
               ? Colors.white
-              .withOpacity(0.2) // Cor de fundo para o item selecionado
+                  .withOpacity(0.2) // Cor de fundo para o item selecionado
               : Colors.transparent,
           borderRadius: BorderRadius.circular(30), // Borda arredondada
         ),
         child: controllerManager.isPayAccount.value
             ? Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(
-                  icon,
-                  size: 24,
-                  color: Colors.white, // Cor do ícone
-                ),
-              ),
-              if (controllerManager.currentPageIndex.value == index)
-                const SizedBox(
-                    height: 4), // Espaçamento entre o ícone e o rótulo
-              if (controllerManager.currentPageIndex.value == index)
-                FittedBox(
-                  child: Text(
-                    label,
-                    style: const TextStyle(
-                      fontSize: 12,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Icon(
+                        icon,
+                        size: 24,
+                        color: Colors.white, // Cor do ícone
+                      ),
                     ),
-                  ),
+                    if (controllerManager.currentPageIndex.value == index)
+                      const SizedBox(
+                          height: 4), // Espaçamento entre o ícone e o rótulo
+                    if (controllerManager.currentPageIndex.value == index)
+                      FittedBox(
+                        child: Text(
+                          label,
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                  ],
                 ),
-            ],
-          ),
-        )
+              )
             : Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              icon,
-              size: 24,
-              color: Colors.white, // Cor do ícone
-            ),
-            if (controllerManager.currentPageIndex.value == index)
-              const SizedBox(
-                  width: 4), // Espaçamento entre o ícone e o rótulo
-            if (controllerManager.currentPageIndex.value == index)
-              Text(
-                label,
-                style: const TextStyle(
-                  fontSize: 12,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    icon,
+                    size: 24,
+                    color: Colors.white, // Cor do ícone
+                  ),
+                  if (controllerManager.currentPageIndex.value == index)
+                    const SizedBox(
+                        width: 4), // Espaçamento entre o ícone e o rótulo
+                  if (controllerManager.currentPageIndex.value == index)
+                    Text(
+                      label,
+                      style: const TextStyle(
+                        fontSize: 12,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                ],
               ),
-          ],
-        ),
       ),
       label: '',
     );
