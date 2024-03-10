@@ -1,12 +1,7 @@
-import 'package:app_pgss/model/firebase_card_example.dart';
-import 'package:app_pgss/resources/app_colors.dart';
-import 'package:app_pgss/resources/strings.dart';
 import 'package:app_pgss/viewmodels/connection_manager_controller.dart';
 import 'package:app_pgss/viewmodels/home_controller.dart';
 import 'package:app_pgss/viewmodels/manager_controller.dart';
-import 'package:app_pgss/views/edits/edit_appbar.dart';
 import 'package:app_pgss/views/edits/edit_card_menu.dart';
-import 'package:app_pgss/views/screens/screen_premium.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:screenshot/screenshot.dart';

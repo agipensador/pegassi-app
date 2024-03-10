@@ -1,7 +1,6 @@
 import 'package:app_pgss/resources/app_colors.dart';
 import 'package:app_pgss/viewmodels/home_controller.dart';
 import 'package:app_pgss/viewmodels/manager_controller.dart';
-import 'package:app_pgss/views/screens/fragments/fragment_card_transfer_offline.dart';
 import 'package:app_pgss/views/screens/screen_1.dart';
 import 'package:app_pgss/views/screens/screen_2.dart';
 import 'package:app_pgss/views/screens/screen_home.dart';
@@ -52,16 +51,17 @@ class FragmentBottomNavigation extends GetView {
                 backgroundColor: AppColors.primaryColor,
                 body: controllerManager.isPayAccount.value
                     ? PageView(
+
                         controller: controllerManager.pageController,
                         physics: const AlwaysScrollableScrollPhysics(),
                         onPageChanged: controllerManager.pageChanged,
-                        children: [const Tela1(), ScreenHome(), const Tela2()],
+                        children: [Tela1(), ScreenHome(), const Tela2()],
                       )
                     : PageView(
                         controller: controllerManager.pageController,
                         physics: const AlwaysScrollableScrollPhysics(),
                         onPageChanged: controllerManager.pageChanged,
-                        children: [ScreenHome(), const Tela1(), const Tela2()],
+                        children: [Tela1(), ScreenHome(), const Tela2()],
                       ),
                 bottomNavigationBar: const SizedBox.shrink(),
               ),

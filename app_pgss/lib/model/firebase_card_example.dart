@@ -20,9 +20,7 @@ class FirebaseCardExample extends StatelessWidget {
             flex: 1,
             child: Padding(
               padding: const EdgeInsets.all(6.0),
-              child:
-
-              ClipRRect(
+              child: ClipRRect(
                 borderRadius: BorderRadius.circular(16), // Image border
                 child: SizedBox.fromSize(
                   size: Size.fromRadius(52), // Image radius
