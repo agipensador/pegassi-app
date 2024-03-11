@@ -2,7 +2,9 @@ import 'package:app_pgss/viewmodels/connection_manager_controller.dart';
 import 'package:app_pgss/viewmodels/home_controller.dart';
 import 'package:app_pgss/viewmodels/manager_controller.dart';
 import 'package:app_pgss/views/edits/edit_card_menu.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:screenshot/screenshot.dart';
 
@@ -46,38 +48,42 @@ class ScreenHome extends GetView {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    GestureDetector(
+                      onTap: () {
+                  controllerManager.openLink(
+                  'https://www.sympla.com.br/produtor/pgssevnts');
+                  },
+                      child: EditCardMenu(
+                          imageUrl:
+                              'https://files.tecnoblog.net/wp-content/uploads/2022/09/stable-diffusion-imagem.jpg',
+                          text: 'PRÓXIMO EVENTO'),
+                    ),
+                    GestureDetector(
+                      onTap:() {
+                        controllerManager.openLink(
+                            'https://www.youtube.com/watch?v=vT1AztU20Ys&pp=ygUOcGVnYXNzaSBhcnNlbmE%3D');
+                      },
+                      child: EditCardMenu(
+                          imageUrl: 'https://i.stack.imgur.com/AAxpw.png',
+                          text: 'Lançamentos'),
+                    ),
+                    GestureDetector(
+                      onTap:    () {
+                        controllerManager.openLink(
+                            'https://www.instagram.com/pegassimac?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==');
+                      },
+                      child: EditCardMenu(
+                          imageUrl:
+                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2RqoZyV0ANWhoM0QbGAlQccjMpq608XBGiyGP_NYoJfSd8o30quhbyGvZ8xgZx0AfIiw&usqp=CAU',
+                          text: 'loja oficial'),
+                    ),
                     EditCardMenu(
-                        func: () {
-                          controllerManager.openLink(
-                              'https://www.sympla.com.br/produtor/pgssevnts');
-                        },
-                        imageUrl:
-                            'https://files.tecnoblog.net/wp-content/uploads/2022/09/stable-diffusion-imagem.jpg',
-                        text: 'PRÓXIMO EVENTO'),
-                    EditCardMenu(
-                        func: () {
-                          controllerManager.openLink(
-                              'https://www.youtube.com/watch?v=vT1AztU20Ys&pp=ygUOcGVnYXNzaSBhcnNlbmE%3D');
-                        },
-                        imageUrl: 'https://i.stack.imgur.com/AAxpw.png',
-                        text: 'Lançamentos'),
-                    EditCardMenu(
-                        func: () {
-                          controllerManager.openLink(
-                              'https://www.instagram.com/pegassimac?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==');
-                        },
-                        imageUrl:
-                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2RqoZyV0ANWhoM0QbGAlQccjMpq608XBGiyGP_NYoJfSd8o30quhbyGvZ8xgZx0AfIiw&usqp=CAU',
-                        text: 'loja oficial'),
-                    EditCardMenu(
-                        func: () {},
                         imageUrl:
                             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2RqoZyV0ANWhoM0QbGAlQccjMpq608XBGiyGP_NYoJfSd8o30quhbyGvZ8xgZx0AfIiw&usqp=CAU',
                         text: 'grupo oficial'),
                     //todo func
                     //isVisibleCadastro ?
                     EditCardMenu(
-                        func: () {},
                         imageUrl:
                             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2RqoZyV0ANWhoM0QbGAlQccjMpq608XBGiyGP_NYoJfSd8o30quhbyGvZ8xgZx0AfIiw&usqp=CAU',
                         text: 'cadastre-se'),
